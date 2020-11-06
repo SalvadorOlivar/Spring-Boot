@@ -6,6 +6,7 @@ COPY mvnw /work/mvnw
 COPY .mvn /work/.mvn
 COPY pom.xml /work/pom.xml
 
+RUN ./mvnw dependency:go-offline
 
 COPY . /work/
 RUN ./mvnw install
