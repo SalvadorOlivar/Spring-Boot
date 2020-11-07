@@ -1,11 +1,12 @@
-node {
-    checkout scm
+pipeline {
+    agent any
 
-    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-
-        def customImage = docker.build("homosapiensother/springboot")
-
-        /* Push the container to the custom Registry */
-        customImage.push()
+    stages {
+        stage('Build') {
+            steps {
+                sh 'bat' 
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
+            }
+        }
     }
 }
