@@ -1,12 +1,11 @@
-pipeline {
-    agent any
+node {
+    checkout scm
 
-    stages {
-        stage('Build') {
-            steps {
-                sh './mvnw install' 
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
-            }
-        }
+    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+
+        def customImage = docker.build("homosapiensother/springboot")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
     }
 }
