@@ -6,8 +6,10 @@ COPY mvnw /work/mvnw
 COPY .mvn /work/.mvn
 COPY pom.xml /work/pom.xml
 
+RUN ./mvn dependency:go-offline
+
 COPY . /work/
-RUN ./mvnw install
+RUN ./mvn install
 
 RUN chmod +x /work/target/demo-0.0.1-SNAPSHOT.jar
 
