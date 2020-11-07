@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'bat' 
+                sh './mvnw install' 
                 archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
             }
         }
