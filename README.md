@@ -1,4 +1,4 @@
-# APP Web Con Spring Boot Utilizando Metodologias DevOps
+# Web app Con Spring Boot Utilizando Metodologias DevOps
 
 _Acá va un párrafo que describa lo que es el proyecto_
 
